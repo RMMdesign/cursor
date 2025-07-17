@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Cursor Dot Demo</title>
+<style>
+  .cursor-follower {
+    position: fixed;
+    width: 16px;
+    height: 16px;
+    background: red;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 999999;
+    transform: translate(-50%, -50%);
+  }
+  body {
+    margin: 0;
+    height: 100vh;
+    background: transparent;
+  }
+</style>
+</head>
+<body>
+<script>
+  window.addEventListener('DOMContentLoaded', function () {
+    const dot = document.createElement('div');
+    dot.className = 'cursor-follower';
+    document.body.appendChild(dot);
+
+    document.addEventListener('mousemove', function (e) {
+      dot.style.left = e.clientX + 'px';
+      dot.style.top = e.clientY + 'px';
+    });
+  });
+</script>
+</body>
+</html>
